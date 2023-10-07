@@ -1,33 +1,6 @@
+export const IMG_CDN_URL="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
 
-import React from "react";
-import ReactDOM from "react-dom/client";
- const root=ReactDOM.createRoot(document.getElementById("root"));
- 
- const Title = () => (
-    <a href ="/"> 
-    <img alt ="logo" className="logo" src ="https://img.restaurantguru.com/rc32-Food-Villa-Pure-Veg-Chinese-Fast-food-logo.jpg" />
-    </a>
- )
-
-
-const Header =() =>{
-return (
-    <div className="header">
-        <Title/>
-        <div className="nav-items">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Cart</li>
-            </ul>
-        </div>
-    </div>
-
-   
-);
-}; 
-const restarauntList =[
+export const restarauntList =[
     {
         type: "restaurant",
         data: {
@@ -1846,54 +1819,3 @@ const restarauntList =[
     
 
 ]
-
-const AppLayout =() =>{
-    return (
-        
-            <>
-           <Header/>
-           <Body/>
-           <Footer/> 
-
-           </>
-
-        
-    );
-};
-const RestaurantCard =({
-    name,cuisines,cloudinaryImageId,lastMileTravelString})=>
-{
-  
-    return (
-        <div className="card">
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/"+cloudinaryImageId}/>
-            <h2>{name}</h2>
-            <h3>{cuisines.join(",")}</h3>
-            <h4>{lastMileTravelString} minutes</h4>
-        </div>
-    )
-}
-const Body =()=>
-{
-    return(
-       <div className="restaurant-list">
-        
-        {restarauntList.map((restaurant)=>{
-        return  <RestaurantCard {...restaurant.data}/>;
-        })}
-        
-
-       </div>
-    );
-};
-
-const Footer =()=>
-{
-    return(
-        <h1></h1>
-        
-    )
-}
-
-
- root.render(<AppLayout/>);
